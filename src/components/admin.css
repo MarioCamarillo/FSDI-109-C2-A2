@@ -1,0 +1,30 @@
+
+.admin-page .parent {
+    display: flex;
+}
+
+section.products {
+    flex: 3;
+}
+
+section.coupons {
+    flex: 2;
+}
+
+
+.my-control {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.my-control label {
+    display: inline-block;
+    width: 80px;
+    text-align: right;
+}
+
+.my-control input {
+    display: inline-block;
+    margin-left: 5px;
+    padding: 5px;
+}

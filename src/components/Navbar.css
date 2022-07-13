@@ -1,0 +1,13 @@
+.navbar{
+    font-family: 'Courier New', Courier, monospace;
+    color: red;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,106,9,1) 17%, rgba(0,212,255,1) 42%);
+}
+
+
+
+.navbar h1{
+    font-family: 'Courier New', Courier, monospace;
+    color: red;
+}

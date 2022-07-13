@@ -1,0 +1,17 @@
+.catalog h2{
+    color:aquamarine;
+}
+
+
+.products-container{
+    display: grid;
+    grid-template-columns:  repeat(3,1fr);
+}
+
+
+@media(max-width:767px){
+    .products-container{
+        grid-template-columns: repeat(1,1f);
+    }
+
+}
