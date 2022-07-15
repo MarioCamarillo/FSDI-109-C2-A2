@@ -5,9 +5,16 @@ const Admin = () => {
   const [coupon, setCoupon] = useState({});
   const [product, setProduct] = useState({});
 
+  const [allCoupons, setAllCoupons] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
+
   const handleCouponChange = (e) => {
     let name = e.target.name;
     let value = e.target.value;
+
+    ////////////////////////////////////////////////////////////////
+    // let copyArray = [...copy];
+    ////////////////////////////////////////////////////////////////
 
     let copy = { ...coupon }; //Create copy
     copy[name] = value; //modify copy
@@ -18,18 +25,29 @@ const Admin = () => {
     ////////////////////////////////
     // Create a copy of Coupon object
     ////////////////////////////////
-    let copy = { ...coupon };
+    let coupon2beSaved = { ...coupon };
 
     ////////////////////////////////
     // Set the discount to be a number
     ////////////////////////////////
-    let discount = parseFloat(copy.discount);
-    copy.discount = discount;
+    let discount = parseFloat(coupon2beSaved.discount);
+    coupon2beSaved.discount = discount;
 
     ////////////////////////////////
     // Console log the copy
     ////////////////////////////////
-    console.log(copy);
+    console.log(coupon2beSaved);
+
+    ////////////////////////////////
+    // todo: send object to the server
+    ////////////////////////////////
+
+    ////////////////////////////////
+    // add it to the stata Array
+    ////////////////////////////////
+    let copyCoupons = [...allCoupons];
+    copyCoupons.push(coupon2beSaved);
+    setAllCoupons(copyCoupons);
   };
 
   const handleProductChange = (e) => {
@@ -45,6 +63,16 @@ const Admin = () => {
     let copy = { ...product };
     copy.price = parseFloat(copy.price);
     console.log(copy);
+    ////////////////////////////////
+    //todo: save product on server
+    ////////////////////////////////
+
+    ////////////////////////////////
+    // save product on state array
+    ////////////////////////////////
+    let copyAllProducts = [...allProducts];
+    copyAllProducts.push(copy);
+    setAllProducts(copyAllProducts);
   };
 
   return (
@@ -95,6 +123,16 @@ const Admin = () => {
               </button>
             </div>
           </div>
+
+          <div className="products-list">
+            <ul>
+              {allProducts.map((prod, index) => (
+                <li key={index}>
+                  {product.title} - ${prod.price}
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
 
         <section className="coupons">
@@ -120,6 +158,15 @@ const Admin = () => {
                 Save Coupon
               </button>
             </div>
+          </div>
+          <div className="coupons-list">
+            <ul>
+              {allCoupons.map((coupon, index) => (
+                <li key={index}>
+                  {coupon.code} - {coupon.discount}% off
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       </div>
