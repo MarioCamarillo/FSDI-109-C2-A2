@@ -2,3 +2,18 @@
     background-color: aliceblue;
     min-height: 800px;
 }
+
+
+.card-page .parent{
+    display: flex;
+}
+
+.card-page .list{
+    flex: 1;
+}
+
+.card-page .info{
+    flex: 1;
+}
+
+

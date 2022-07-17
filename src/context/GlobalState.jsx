@@ -16,8 +16,9 @@ const GlobalState = (props) => {
     setCart(copyCart);
   };
 
-  const myRemoveProduct = () => {
-    console.log("Global Remove Product");
+  const myRemoveProduct = (productId) => {
+    let copyCart = cart.filter((product) => product.id !== productId);
+    setCart(copyCart);
   };
 
   return (

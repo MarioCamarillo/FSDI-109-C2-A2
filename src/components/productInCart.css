@@ -1,0 +1,41 @@
+
+
+.product-cart{
+    display: flex;
+    border: 1px solid #676767;
+    margin-bottom: 12px;
+    padding: 7px 14px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background-color: white;
+}
+
+
+.product-cart img{
+    height: 140px;
+    flex: 1;
+}
+
+
+.product-cart .info{
+    flex: 6;
+}
+
+.product-cart .price,
+.product-cart .quantity,
+.product-cart .total{
+    flex: 1;
+}
+
+.product-cart .button{
+    flex: 1;
+}
+
+
+.product-cart .col-head{
+    color: #333;
+    display: block;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}

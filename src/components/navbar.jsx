@@ -5,6 +5,21 @@ import StoreContext from "../context/storeContext";
 
 function Navbar() {
   let cart = useContext(StoreContext).cart;
+
+  const getCount = () => {
+    let count = 0;
+
+    ////////////////////////////////////
+    // travel through the array and sum
+    // the quantity of each product
+    ////////////////////////////////////
+    for (let index = 0; index < cart.length; index++) {
+      count = count + cart[index].quantity;
+    }
+
+    return count;
+  };
+
   return (
     <div className="navbar btn-outline-light">
       <ul className="nav">
@@ -25,7 +40,7 @@ function Navbar() {
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/Cart">
-            <span className="badge bg-primary">{cart.length}</span>
+            <span className="badge bg-primary">{getCount()}</span>
             Cart
           </Link>
         </li>

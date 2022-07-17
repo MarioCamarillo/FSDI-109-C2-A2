@@ -2,6 +2,7 @@ import "./product.css";
 import QuantityPicker from "./quantityPicker";
 import { useState, useContext } from "react";
 import StoreContext from "./../context/storeContext";
+import Cart from "./cart";
 
 const Product = (props) => {
   let [quantity, setQuantity] = useState(1);
@@ -17,8 +18,19 @@ const Product = (props) => {
   };
 
   const handleAdd = () => {
-    console.log("add button pressed");
-    globalAddProduct(props.data);
+    ///////////////////////////////////////////////////
+    // should be a copy of props.data plus the quantity
+    ///////////////////////////////////////////////////
+    let prod4cart = { ...props.data };
+    prod4cart.quantity = quantity;
+
+    ///////////////////////////////////////////////////
+    // should be a copy of props.data plus the quantity
+    // (another way)
+    ///////////////////////////////////////////////////
+    //let prod4cart = { ...props.data, quantity: quantity };
+
+    globalAddProduct(prod4cart);
   };
 
   return (
